@@ -1,5 +1,6 @@
 CS240 Lab1<br>
-Ji Ma
+Ji Ma<br>
+<a href:'mailto:ma438@purdue.edu'>ma438@purdue.edu</a>
 
 ### Q1
 The nature of the a.out is the binary code compiled by gcc.<br>
@@ -33,6 +34,7 @@ if I run gcc with option -c, which means<br>
 main.c  main.o
 
 ```
+
 I'm not sure main.o is the same as main.out.
 
 ### Q3
@@ -87,15 +89,18 @@ main.c:14:9: warning: format ‘%d’ expects argument of type ‘int *’, but 
 
 ### Q5
 When we dealing with
+
 ```
 // compute addition
   z = myadd(x,y);
 ```
+
 Because the myadd function don't have to modify the variable directly from their address. So, we don't need &.
 
 However, if we want to change the z value directly in the function, then we need to specify &z to let c know where is the address. The different between address and value is really important.
 
 Here's some error I got from gcc
+
 ```
   main.c:37:10: error: incompatible types when returning type ‘float *’ but ‘float’ was expected
    return c;
@@ -122,6 +127,7 @@ So changed main.c with the knowledge showing right here:
 3. Use & before var for any modification on address.
 
 ### Q6
+
 V6 modualized the myadd and main in seperate files.
 
 This is how you compile the v6 code. I figured out that if you modulized the function in different .c file, you have to pass all the file that you wrote to gcc to make it work.
@@ -145,3 +151,11 @@ compilation terminated.
 I would say that <> is for some system built in libs, "" is for user created function/lib in the same path.
 
 ### Bonus problem
+Basically, I added * for all the params in declaration. And add & infront of them when I call the function. Inside of the function, I use
+
+```
+float a_value = *a;
+float b_value = *b;
+```
+
+to get the value from the address, and then we can add them together and give the value to the address of c.

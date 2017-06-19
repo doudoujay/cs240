@@ -35,7 +35,7 @@ main.c  main.o
 
 ```
 
-I'm not sure main.o is the same as main.out.
+Main.o is the partial compiled file only for main.c, if we use gcc to merge main.o and myadd.o, we will get the finalized binary executable output.
 
 ### Q3
 & is a pointer in C, so when you are trying to assign value in scanf()<br>
